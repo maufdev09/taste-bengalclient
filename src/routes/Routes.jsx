@@ -12,16 +12,19 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch(`http://localhost:5000/shef`),
       },
     ],
   },
   {
-    path: "shef",
+    path: "chef",
     element: <ShefsLayout></ShefsLayout>,
     children: [
       {
         path: ":id",
         element: <ShefRecipie></ShefRecipie>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/shef/${params.id}`),
       },
     ],
   },
