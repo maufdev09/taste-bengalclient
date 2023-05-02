@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import Home from "../pages/Home/Home/Home";
-import Shef from "../pages/Home/Home/Shef";
+import ShefsLayout from "../layouts/ShefsLayout";
+import ShefRecipie from "../pages/Shefs/ShefRecipie/ShefRecipie";
 
 const router = createBrowserRouter([
   {
@@ -12,9 +13,15 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+    ],
+  },
+  {
+    path: "shef",
+    element: <ShefsLayout></ShefsLayout>,
+    children: [
       {
-        path: "/shef/:id",
-        element: <Shef></Shef>,
+        path: ":id",
+        element: <ShefRecipie></ShefRecipie>,
       },
     ],
   },
