@@ -1,15 +1,22 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import ShefRecipieCart from "./ShefRecipieCart";
 
 const ShefRecipie = () => {
-  const recipe = useLoaderData();
-  const { image, bio, likes, recipes_count, years_of_experience, name } =
-    recipe;
-  console.log(recipe);
+  const chefdata = useLoaderData();
+  const {
+    image,
+    bio,
+    likes,
+    recipes_count,
+    years_of_experience,
+    name,
+    recipes,
+  } = chefdata;
+  console.log(chefdata);
   return (
-    // Hero section
-
     <div>
+      {/* Hero section */}
       <div className="hero min-h-screen bg-base-200 px-20 ">
         <div className="hero-content flex-col lg:flex-row-reverse ">
           <img src={image} className="max-w-sm rounded-lg shadow-2xl w-52 " />
@@ -35,6 +42,11 @@ const ShefRecipie = () => {
             <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
+      </div>
+      <div className=" ">
+        {recipes.map((recipe) => (
+          <ShefRecipieCart key={recipe.id} recipe={recipe}></ShefRecipieCart>
+        ))}
       </div>
     </div>
   );

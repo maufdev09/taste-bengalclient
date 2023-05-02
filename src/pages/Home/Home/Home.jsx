@@ -12,7 +12,7 @@ const Home = () => {
         Our {chefs.length} Master Chefs
       </h3>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-3 gap-6">
         {chefs.map((chef) => (
           <ShefsCarts key={chef.id} chef={chef}></ShefsCarts>
         ))}
