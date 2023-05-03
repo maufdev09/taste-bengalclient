@@ -1,18 +1,32 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { useContext } from "react";
 
 const Registration = () => {
+  const { createUser } = useContext(AuthContext);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
+
+  // .............................////.
+
   const handleSubmit = (event) => {
-    // .............................////.
     event.preventDefault();
     console.log(
       `Name: ${name}, Email: ${email}, Password: ${password}, Photo URL: ${photoUrl}`
     );
-    // Handle form submission logic here (e.g. send data to server)
+    createUser(email, password)
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="bg-slate-200 w-3/4 mx-auto my-16 py-20">
@@ -76,6 +90,13 @@ const Registration = () => {
             placeholder="https://example.com/photo.jpg"
           />
         </div>
+        <p className="pb-5">
+          Already Have an Account?{" "}
+          <Link className="link text-indigo-500" to="/login">
+            {" "}
+            Login{" "}
+          </Link>{" "}
+        </p>
         <div className="flex items-center justify-between">
           <button className="btn btn-primary" type="submit">
             Register
