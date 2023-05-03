@@ -3,6 +3,8 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home/Home/Home";
 import ShefsLayout from "../layouts/ShefsLayout";
 import ShefRecipie from "../pages/Shefs/ShefRecipie/ShefRecipie";
+import Login from "../pages/Home/login/Login";
+import Registration from "../pages/Home/registration/Registration";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,14 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () => fetch(`http://localhost:5000/shef`),
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "registration",
+        element: <Registration></Registration>,
       },
     ],
   },

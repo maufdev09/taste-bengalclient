@@ -1,12 +1,14 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import ShefsCarts from "./ShefsCarts";
+import Header from "../../Shared/Header/Header";
 
 const Home = () => {
   const chefsdata = useLoaderData();
   const chefs = chefsdata.chefs;
   return (
     <div>
+      <Header></Header>
       {/* shefs section  */}
       <h3 className="text-center text-3xl font-bold my-9">
         Our {chefs.length} Master Chefs
