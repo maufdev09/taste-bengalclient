@@ -5,6 +5,7 @@ import ShefsLayout from "../layouts/ShefsLayout";
 import ShefRecipie from "../pages/Shefs/ShefRecipie/ShefRecipie";
 import Login from "../pages/Home/login/Login";
 import Registration from "../pages/Home/registration/Registration";
+import PrivateRouts from "./PrivateRouts";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: ":id",
-        element: <ShefRecipie></ShefRecipie>,
+        element: (
+          <PrivateRouts>
+            <ShefRecipie></ShefRecipie>
+          </PrivateRouts>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/shef/${params.id}`),
       },

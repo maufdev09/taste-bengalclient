@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className="navbar bg-base-100">
@@ -55,9 +61,9 @@ const Navbar = () => {
       <div className="navbar-end">
         {user && <FaUserCircle className="text-4xl mx-3"></FaUserCircle>}
         {user ? (
-          <Link className="btn" to="/logout">
+          <button className="btn" onClick={handleLogOut}>
             Logout
-          </Link>
+          </button>
         ) : (
           <Link className="btn" to="/login">
             Login
