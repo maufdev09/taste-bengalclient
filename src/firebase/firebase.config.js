@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCUg8gKBr3UDvNyUklWKoX3xBezUWi3cIs",
-  authDomain: "taste-of-bengal-ef974.firebaseapp.com",
-  projectId: "taste-of-bengal-ef974",
-  storageBucket: "taste-of-bengal-ef974.appspot.com",
-  messagingSenderId: "782972542507",
-  appId: "1:782972542507:web:e5afa260635a6ba620d46e",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
