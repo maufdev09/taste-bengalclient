@@ -17,10 +17,10 @@ const ShefRecipie = () => {
   return (
     <div>
       {/* Hero section */}
-      <div className="hero min-h-screen bg-base-200 px-20 ">
+      <div className="hero min-h-screen bg-base-200 md:px-20 ">
         <div className="hero-content flex-col lg:flex-row-reverse ">
           <img src={image} className="max-w-sm rounded-lg shadow-2xl w-52 " />
-          <div>
+          <div className="max-sm:text-center">
             <h1 className="text-5xl font-bold pb-4">{name}</h1>
             <p className="pt-2">{bio}</p>
             <div className="flex gap-3 pb-5 pt-2">

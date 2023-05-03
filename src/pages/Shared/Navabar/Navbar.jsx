@@ -51,11 +51,11 @@ const Navbar = () => {
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>Item </a>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Taste of Bengal</a>
+        <a className="btn btn-ghost normal-case md:text-xl">Taste of Bengal</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -90,7 +90,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Get started</a>
+        <a className=" btn">Login</a>
       </div>
     </div>
   );

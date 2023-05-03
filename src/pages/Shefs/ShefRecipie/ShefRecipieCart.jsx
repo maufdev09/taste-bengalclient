@@ -16,11 +16,14 @@ const ShefRecipieCart = ({ recipe }) => {
 
   const { ingredients, image, name, cooking_method, rating } = recipe;
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl my-10 ps-6">
+    <div
+      className="card lg:card-side bg-base-100 shadow-xl my-10 md:ps-6
+    max-sm:mx-3  "
+    >
       <figure>
-        <img className="w-60 " src={image} alt="Album" />
+        <img className="md:w-60 max-sm:w-fit  " src={image} alt="Album" />
       </figure>
-      <div className="card-body w-8/12">
+      <div className="card-body md:w-8/12">
         <h2 className="card-title">{name}</h2>
         <p className="">{cooking_method}</p>
 
@@ -41,7 +44,7 @@ const ShefRecipieCart = ({ recipe }) => {
           />
           <span>{rating}</span>
         </div>
-        <div className="card-actions justify-end">
+        <div className="card-actions md:justify-end">
           <button
             onClick={HandleFvrtBtn}
             className={FvrtActive ? "hidden" : "btn btn-primary"}
