@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
@@ -11,6 +11,13 @@ const Navbar = () => {
     logOut()
       .then()
       .catch((error) => console.log(error));
+  };
+  const navLinkStyle = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+      textDecoration: isActive ? "none" : "underline",
+      color: isActive ? "#570DF8" : "black",
+    };
   };
 
   return (
@@ -38,22 +45,26 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a href="/">Home</a>
+              <NavLink to={"/"}>Home</NavLink>
             </li>
             <li>
-              <a>Blog</a>
+              <NavLink to={"/blog"}>Blog</NavLink>
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case md:text-xl">Taste of Bengal</a>
+        <a href="/" className="btn btn-ghost normal-case md:text-xl">
+          Taste of Bengal
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a href="/">Home</a>
+        <ul className=" flex gap-4 px-1 text-2xl">
+          <li className="">
+            <NavLink to={"/"} style={navLinkStyle}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <a>Blog</a>
+            <NavLink to={"/blog"}>Blog</NavLink>
           </li>
         </ul>
       </div>
