@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaHeart, FaRegStar, FaStar } from "react-icons/fa";
+import Rating from "react-rating";
 
 const ShefRecipieCart = ({ recipe }) => {
-  const { ingredients, image, name, cooking_method } = recipe;
+  const [FvrtActive, setFvrtActive] = useState(false);
+
+  const { ingredients, image, name, cooking_method, rating } = recipe;
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl my-10 ps-6">
       <figure>
@@ -17,8 +21,24 @@ const ShefRecipieCart = ({ recipe }) => {
             {ingredient}
           </li>
         ))}
+
+        <div>
+          <Rating
+            placeholderRating={rating}
+            readonly
+            emptySymbol={<FaRegStar />}
+            placeholderSymbol={<FaStar className="text-yellow-300"></FaStar>}
+            fullSymbol={<FaStar />}
+          />
+          <span>{rating}</span>
+        </div>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Listen</button>
+          <button
+            onClick={() => setFvrtActive(!FvrtActive)}
+            className={FvrtActive ? "hidden" : "btn btn-primary"}
+          >
+            <FaHeart />
+          </button>
         </div>
       </div>
     </div>

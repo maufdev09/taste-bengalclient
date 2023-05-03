@@ -6,9 +6,9 @@ const ShefsCarts = ({ chef }) => {
   const { image, name, years_of_experience, recipes_count, likes, id } = chef;
   return (
     <div>
-      <div className="card w-96 bg-base-100 shadow-xl mx-auto ">
-        <figure>
-          <img className="w-70" src={image} alt="Shoes" />
+      <div className="card w-90 bg-base-100 shadow-xl mx-auto ">
+        <figure className="w-fit">
+          <img className="" src={image} alt="Shoes" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">Name: {name}</h2>
