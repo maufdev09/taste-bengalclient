@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import { FaHeart, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ShefRecipieCart = ({ recipe }) => {
+  const HandleFvrtBtn = () => {
+    setFvrtActive(!FvrtActive);
+    toast.success("This recipe is in your favorite", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
   const [FvrtActive, setFvrtActive] = useState(false);
 
   const { ingredients, image, name, cooking_method, rating } = recipe;
@@ -34,11 +43,12 @@ const ShefRecipieCart = ({ recipe }) => {
         </div>
         <div className="card-actions justify-end">
           <button
-            onClick={() => setFvrtActive(!FvrtActive)}
+            onClick={HandleFvrtBtn}
             className={FvrtActive ? "hidden" : "btn btn-primary"}
           >
             <FaHeart />
           </button>
+          <ToastContainer />
         </div>
       </div>
     </div>
