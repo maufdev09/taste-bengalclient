@@ -2,6 +2,8 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import ShefsCarts from "./ShefsCarts";
 import Header from "../../Shared/Header/Header";
+import HappyCustomer from "./HappyCustomer";
+import RestaurantFAQ from "./RestaurantFAQ";
 
 const Home = () => {
   const chefsdata = useLoaderData();
@@ -18,6 +20,12 @@ const Home = () => {
         {chefs.map((chef) => (
           <ShefsCarts key={chef.id} chef={chef}></ShefsCarts>
         ))}
+      </div>
+      <div className="container mx-auto">
+        <HappyCustomer></HappyCustomer>
+      </div>
+      <div className="">
+        <RestaurantFAQ></RestaurantFAQ>
       </div>
     </div>
   );
