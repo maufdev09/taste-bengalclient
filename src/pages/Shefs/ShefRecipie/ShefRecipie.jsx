@@ -13,7 +13,6 @@ const ShefRecipie = () => {
     name,
     recipes,
   } = chefdata;
-  console.log(chefdata);
   return (
     <div>
       {/* Hero section */}

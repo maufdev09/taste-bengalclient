@@ -1,25 +1,25 @@
 import React from "react";
 const people = [
   {
-    name: "Leslie Alexander",
+    name: "Leslie ",
     role: "Co-Founder / CEO",
     imageUrl:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
-    name: "Leslie Alexander",
+    name: "Mahin",
     role: "Co-Founder / CEO",
     imageUrl:
       "https://images.unsplash.com/photo-1595956553066-fe24a8c33395?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
   },
   {
-    name: "Leslie Alexander",
+    name: "Monir",
     role: "Co-Founder / CEO",
     imageUrl:
       "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
   },
   {
-    name: "Leslie Alexander",
+    name: " Alexander",
     role: "Co-Founder / CEO",
     imageUrl:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
@@ -81,7 +81,7 @@ const HappyCustomer = () => {
                       type="radio"
                       name="rating-2"
                       className="mask mask-star-2 bg-orange-400"
-                      checked
+                      // checked
                     />
                   </div>
                 </div>

@@ -19,7 +19,6 @@ const Login = () => {
     signIn(email, password)
       .then((res) => {
         const loggedUser = res?.user;
-        console.log(loggedUser);
         navigate(from, { replace: true });
       })
       .catch((error) => setErr(error.message));

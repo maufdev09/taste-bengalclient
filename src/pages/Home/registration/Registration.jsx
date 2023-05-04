@@ -33,7 +33,6 @@ const Registration = () => {
     createUser(email, password, name, photoUrl)
       .then((result) => {
         const createdUser = result?.user;
-        console.log(createdUser);
         navigate("/");
       })
       .catch((error) => {
