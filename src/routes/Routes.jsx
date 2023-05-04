@@ -17,7 +17,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch(`http://localhost:5000/shef`),
+        loader: () =>
+          fetch(`https://taste-of-bengal-server-maufdev09.vercel.app/shef`),
       },
       {
         path: "login",
@@ -42,7 +43,9 @@ const router = createBrowserRouter([
           </PrivateRouts>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/shef/${params.id}`),
+          fetch(
+            `https://taste-of-bengal-server-maufdev09.vercel.app/shef/${params.id}`
+          ),
       },
     ],
   },

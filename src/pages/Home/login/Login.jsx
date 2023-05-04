@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const [err, setErr] = useState("");
-  const { signIn } = useContext(AuthContext);
+  const { signIn, loginGoogle } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -17,11 +18,22 @@ const Login = () => {
 
     signIn(email, password)
       .then((res) => {
-        const loggedUser = res.user;
+        const loggedUser = res?.user;
         console.log(loggedUser);
         navigate(from, { replace: true });
       })
       .catch((error) => setErr(error.message));
+  };
+
+  const handlegoogleSignIn = () => {
+    loginGoogle()
+      .then((res) => {
+        const loggeduser = res?.user;
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setErr(error.message);
+      });
   };
   return (
     <div className="bg-slate-200 w-3/4 mx-auto my-16 py-20">
@@ -67,6 +79,18 @@ const Login = () => {
         <div className="flex items-center justify-between">
           <button className="btn btn-primary" type="submit">
             Login
+          </button>
+        </div>
+        <h3 className="text-xl text-center my-8">Or</h3>
+        <div className="flex justify-center space-x-4 -5">
+          <button
+            onClick={handlegoogleSignIn}
+            className="py-2 px-4 border border-gray-400 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 flex items-center gap-2"
+          >
+            <FaGoogle></FaGoogle>Sign in with Google
+          </button>
+          <button className="py-2 px-4 border border-gray-400 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 flex items-center gap-2">
+            <FaGithub></FaGithub>Sign in with GitHub
           </button>
         </div>
       </form>
