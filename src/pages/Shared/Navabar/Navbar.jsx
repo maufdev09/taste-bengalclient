@@ -64,7 +64,9 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/blog"}>Blog</NavLink>
+            <NavLink to={"/blog"} style={navLinkStyle}>
+              Blog
+            </NavLink>
           </li>
         </ul>
       </div>

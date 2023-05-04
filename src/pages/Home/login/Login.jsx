@@ -6,7 +6,7 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   const [err, setErr] = useState("");
-  const { signIn, loginGoogle } = useContext(AuthContext);
+  const { signIn, loginGoogle, loginGitHub } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -32,6 +32,18 @@ const Login = () => {
       })
       .catch((error) => {
         setErr(error.message);
+      });
+  };
+
+  const handleGithubSignIn = () => {
+    loginGitHub()
+      .then((res) => {
+        // const loggeduser = res?.user;
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setErr(error.message);
+        console.error(error.message);
       });
   };
   return (
@@ -88,7 +100,10 @@ const Login = () => {
           >
             <FaGoogle></FaGoogle>Sign in with Google
           </button>
-          <button className="py-2 px-4 border border-gray-400 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 flex items-center gap-2">
+          <button
+            onClick={handleGithubSignIn}
+            className="py-2 px-4 border border-gray-400 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 flex items-center gap-2"
+          >
             <FaGithub></FaGithub>Sign in with GitHub
           </button>
         </div>

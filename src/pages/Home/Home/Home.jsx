@@ -4,13 +4,16 @@ import ShefsCarts from "./ShefsCarts";
 import Header from "../../Shared/Header/Header";
 import HappyCustomer from "./HappyCustomer";
 import RestaurantFAQ from "./RestaurantFAQ";
+import LazyLoad from "react-lazy-load";
 
 const Home = () => {
   const chefsdata = useLoaderData();
   const chefs = chefsdata.chefs;
   return (
     <div>
-      <Header></Header>
+      <LazyLoad height={762}>
+        <Header></Header>
+      </LazyLoad>
       {/* shefs section  */}
       <h3 className="text-center text-3xl font-bold my-9">
         Our {chefs.length} Master Chefs
