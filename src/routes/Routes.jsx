@@ -6,11 +6,13 @@ import ShefRecipie from "../pages/Shefs/ShefRecipie/ShefRecipie";
 import Login from "../pages/Home/login/Login";
 import Registration from "../pages/Home/registration/Registration";
 import PrivateRouts from "./PrivateRouts";
+import ErrorPage from "../pages/Shared/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -30,6 +32,7 @@ const router = createBrowserRouter([
   {
     path: "chef",
     element: <ShefsLayout></ShefsLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: ":id",

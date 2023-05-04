@@ -1,31 +1,43 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext } from "react";
 
 const Registration = () => {
   const { createUser } = useContext(AuthContext);
-
+  const [err, setErr] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
+  const navigate = useNavigate();
 
   // .............................////.
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(
-      `Name: ${name}, Email: ${email}, Password: ${password}, Photo URL: ${photoUrl}`
-    );
+
+    if (!email || !password) {
+      setErr("Please enter email and password");
+      return;
+    }
+
+    if (password.length < 6) {
+      setErr("Password must be at least 6 characters long");
+      return;
+    }
+
+    setErr("");
+
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
         console.log(createdUser);
+        navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        setErr(error.message);
       });
   };
   return (
@@ -97,6 +109,7 @@ const Registration = () => {
             Login{" "}
           </Link>{" "}
         </p>
+        <p className="text-red-500 ">{err}</p>
         <div className="flex items-center justify-between">
           <button className="btn btn-primary" type="submit">
             Register

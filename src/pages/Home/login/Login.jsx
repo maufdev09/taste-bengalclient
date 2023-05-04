@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
 const Login = () => {
+  const [err, setErr] = useState("");
   const { signIn } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +21,7 @@ const Login = () => {
         console.log(loggedUser);
         navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setErr(error.message));
   };
   return (
     <div className="bg-slate-200 w-3/4 mx-auto my-16 py-20">
@@ -62,6 +63,7 @@ const Login = () => {
             Register{" "}
           </Link>{" "}
         </p>
+        <p className="text-red-500 ">{err}</p>
         <div className="flex items-center justify-between">
           <button className="btn btn-primary" type="submit">
             Login
