@@ -30,7 +30,7 @@ const Registration = () => {
 
     setErr("");
 
-    createUser(email, password)
+    createUser(email, password, name, photoUrl)
       .then((result) => {
         const createdUser = result.user;
         console.log(createdUser);

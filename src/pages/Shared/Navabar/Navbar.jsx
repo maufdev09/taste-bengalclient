@@ -6,6 +6,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  console.log(user?.photoURL);
 
   const handleLogOut = () => {
     logOut()
@@ -70,7 +71,17 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end">
-        {user && <FaUserCircle className="text-4xl mx-3"></FaUserCircle>}
+        {user && user?.photoURL ? (
+          <div
+            className="w-8 mx-3 tooltip tooltip-left"
+            data-tip={user?.displayName}
+          >
+            <img src={user?.photoURL} className="  rounded-full" />
+          </div>
+        ) : (
+          <FaUserCircle className="text-4xl mx-3"></FaUserCircle>
+        )}
+
         {user ? (
           <button className="btn" onClick={handleLogOut}>
             Logout
